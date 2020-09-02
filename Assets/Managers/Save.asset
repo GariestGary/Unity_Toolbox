@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3d7f1214236df4aaa01884c525057a, type: 3}
-  m_Name: New Save Manager
+  m_Name: Save
   m_EditorClassIdentifier: 
-  saveFolder: 
-  saveFileName: 
+  saveFolder: C:/Users/rtute/AppData/LocalLow/DefaultCompany/Toolbox
+  saveFileName: save
