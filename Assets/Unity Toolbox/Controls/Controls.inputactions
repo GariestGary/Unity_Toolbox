@@ -180,6 +180,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Developer",
+            "id": "f9dd8911-cb82-4b35-b4d3-9f27c9f564e1",
+            "actions": [
+                {
+                    "name": "Console",
+                    "type": "Button",
+                    "id": "5f4c2df3-b2f9-4dee-b1b8-5d9c6d2c7093",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a35e4119-c1d2-4e51-8756-52873c6e946c",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Console",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

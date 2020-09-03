@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Input", menuName = "Toolbox/Managers/Input Manager")]
 public class InputManager : ManagerBase, IExecute, ISceneChange
@@ -62,7 +61,7 @@ public class InputManager : ManagerBase, IExecute, ISceneChange
 		controls.Player.Click.performed += _ => 
 		{
 			Clicked = true;
-			OnClick.Invoke();
+			OnClick?.Invoke();
 		};
 
 		controls.Player.Click.canceled += _ =>

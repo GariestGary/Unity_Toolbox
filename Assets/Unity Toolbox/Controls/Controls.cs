@@ -193,6 +193,33 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Developer"",
+            ""id"": ""f9dd8911-cb82-4b35-b4d3-9f27c9f564e1"",
+            ""actions"": [
+                {
+                    ""name"": ""Console"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f4c2df3-b2f9-4dee-b1b8-5d9c6d2c7093"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a35e4119-c1d2-4e51-8756-52873c6e946c"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Console"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -221,6 +248,9 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_PointerDelta = m_Player.FindAction("PointerDelta", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Developer
+        m_Developer = asset.FindActionMap("Developer", throwIfNotFound: true);
+        m_Developer_Console = m_Developer.FindAction("Console", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -331,6 +361,39 @@ public class @Controls : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Developer
+    private readonly InputActionMap m_Developer;
+    private IDeveloperActions m_DeveloperActionsCallbackInterface;
+    private readonly InputAction m_Developer_Console;
+    public struct DeveloperActions
+    {
+        private @Controls m_Wrapper;
+        public DeveloperActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Console => m_Wrapper.m_Developer_Console;
+        public InputActionMap Get() { return m_Wrapper.m_Developer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DeveloperActions set) { return set.Get(); }
+        public void SetCallbacks(IDeveloperActions instance)
+        {
+            if (m_Wrapper.m_DeveloperActionsCallbackInterface != null)
+            {
+                @Console.started -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
+                @Console.performed -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
+                @Console.canceled -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
+            }
+            m_Wrapper.m_DeveloperActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Console.started += instance.OnConsole;
+                @Console.performed += instance.OnConsole;
+                @Console.canceled += instance.OnConsole;
+            }
+        }
+    }
+    public DeveloperActions @Developer => new DeveloperActions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
     public InputControlScheme MouseKeyboardScheme
     {
@@ -347,5 +410,9 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnPointerDelta(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IDeveloperActions
+    {
+        void OnConsole(InputAction.CallbackContext context);
     }
 }
