@@ -183,12 +183,21 @@
         },
         {
             "name": "Developer",
+<<<<<<< Updated upstream
             "id": "f9dd8911-cb82-4b35-b4d3-9f27c9f564e1",
             "actions": [
                 {
                     "name": "Console",
                     "type": "Button",
                     "id": "5f4c2df3-b2f9-4dee-b1b8-5d9c6d2c7093",
+=======
+            "id": "a4480119-4c24-4a33-b7a0-bbe66d2f768b",
+            "actions": [
+                {
+                    "name": "Console Toggle",
+                    "type": "Button",
+                    "id": "f2d277eb-a8b9-42a2-a21e-93a25c67b58e",
+>>>>>>> Stashed changes
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -197,12 +206,20 @@
             "bindings": [
                 {
                     "name": "",
+<<<<<<< Updated upstream
                     "id": "a35e4119-c1d2-4e51-8756-52873c6e946c",
+=======
+                    "id": "2595e89b-e85c-4581-a555-2f26187678db",
+>>>>>>> Stashed changes
                     "path": "<Keyboard>/backquote",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+<<<<<<< Updated upstream
                     "action": "Console",
+=======
+                    "action": "Console Toggle",
+>>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

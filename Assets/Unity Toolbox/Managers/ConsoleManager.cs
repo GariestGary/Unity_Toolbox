@@ -5,7 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System;
 
+<<<<<<< Updated upstream
 [CreateAssetMenu(fileName = "Console", menuName = "Console Manager")]
+=======
+[CreateAssetMenu(fileName = "Console", menuName = "Toolbox/Managers/Console Manager")]
+>>>>>>> Stashed changes
 public class ConsoleManager : ManagerBase
 {
     [SerializeField] private string prefix;

@@ -27,7 +27,7 @@ public class Starter : MonoBehaviour
 			awake.OnAwake();
 		}
 
-		Toolbox.GetManager<MessageManager>().Subscribe(ServiceShareData.SCENE_CHANGE, () => OnSceneChange());
+		Toolbox.GetManager<MessageManager>()?.Subscribe(ServiceShareData.SCENE_CHANGE, () => OnSceneChange());
 	}
 
 	private void OnSceneChange()
