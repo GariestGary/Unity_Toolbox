@@ -267,11 +267,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // Developer
         m_Developer = asset.FindActionMap("Developer", throwIfNotFound: true);
-<<<<<<< Updated upstream
-        m_Developer_Console = m_Developer.FindAction("Console", throwIfNotFound: true);
-=======
         m_Developer_ConsoleToggle = m_Developer.FindAction("Console Toggle", throwIfNotFound: true);
->>>>>>> Stashed changes
     }
 
     public void Dispose()
@@ -386,20 +382,13 @@ public class @Controls : IInputActionCollection, IDisposable
     // Developer
     private readonly InputActionMap m_Developer;
     private IDeveloperActions m_DeveloperActionsCallbackInterface;
-<<<<<<< Updated upstream
-    private readonly InputAction m_Developer_Console;
-=======
     private readonly InputAction m_Developer_ConsoleToggle;
->>>>>>> Stashed changes
+
     public struct DeveloperActions
     {
         private @Controls m_Wrapper;
         public DeveloperActions(@Controls wrapper) { m_Wrapper = wrapper; }
-<<<<<<< Updated upstream
-        public InputAction @Console => m_Wrapper.m_Developer_Console;
-=======
         public InputAction @ConsoleToggle => m_Wrapper.m_Developer_ConsoleToggle;
->>>>>>> Stashed changes
         public InputActionMap Get() { return m_Wrapper.m_Developer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -409,28 +398,16 @@ public class @Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DeveloperActionsCallbackInterface != null)
             {
-<<<<<<< Updated upstream
-                @Console.started -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
-                @Console.performed -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
-                @Console.canceled -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsole;
-=======
                 @ConsoleToggle.started -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsoleToggle;
                 @ConsoleToggle.performed -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsoleToggle;
                 @ConsoleToggle.canceled -= m_Wrapper.m_DeveloperActionsCallbackInterface.OnConsoleToggle;
->>>>>>> Stashed changes
             }
             m_Wrapper.m_DeveloperActionsCallbackInterface = instance;
             if (instance != null)
             {
-<<<<<<< Updated upstream
-                @Console.started += instance.OnConsole;
-                @Console.performed += instance.OnConsole;
-                @Console.canceled += instance.OnConsole;
-=======
                 @ConsoleToggle.started += instance.OnConsoleToggle;
                 @ConsoleToggle.performed += instance.OnConsoleToggle;
                 @ConsoleToggle.canceled += instance.OnConsoleToggle;
->>>>>>> Stashed changes
             }
         }
     }
@@ -454,10 +431,6 @@ public class @Controls : IInputActionCollection, IDisposable
     }
     public interface IDeveloperActions
     {
-<<<<<<< Updated upstream
-        void OnConsole(InputAction.CallbackContext context);
-=======
         void OnConsoleToggle(InputAction.CallbackContext context);
->>>>>>> Stashed changes
     }
 }
